@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-white text-gray-900;
+}
+
+/* Hide horizontal scrollbar for product rows */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-floating-button {
+  position: fixed;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  right: max(20px, env(safe-area-inset-right));
+  z-index: 9999;
+  width: 52px;
+  height: 52px;
+}
+
+@media (min-width: 768px) {
+  .whatsapp-floating-button {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.whatsapp-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.whatsapp-button:hover {
+  background-color: #20ba5a;
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
+  transform: scale(1.05);
+}
+
+.whatsapp-button:active {
+  transform: scale(0.95);
+}
+
+.whatsapp-icon {
+  width: 28px;
+  height: 28px;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .whatsapp-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Glow effect */
+.whatsapp-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: #25d366;
+  border-radius: 50%;
+  filter: blur(12px);
+  opacity: 0.3;
+  z-index: 0;
+  animation: whatsapp-glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes whatsapp-glow-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Ripple animation rings */
+.whatsapp-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border: 2px solid #25d366;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.whatsapp-ripple-1 {
+  animation: whatsapp-ripple-animation 2s ease-out infinite;
+}
+
+.whatsapp-ripple-2 {
+  animation: whatsapp-ripple-animation 2s ease-out infinite 1s;
+}
+
+@keyframes whatsapp-ripple-animation {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
