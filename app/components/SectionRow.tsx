@@ -263,10 +263,13 @@ export default function SectionRow({ section }: SectionRowProps) {
               ? 'max-h-[2000px] opacity-100 overflow-y-visible relative z-10 mb-12' 
               : 'max-h-0 opacity-0 overflow-hidden'
           }`}
+          style={showDetails ? { touchAction: 'pan-y' } : undefined}
         >
           <div className={`bg-white rounded-xl border border-gray-200 transition-all duration-300 ${
             showDetails ? 'p-6 md:p-8' : 'p-0 m-0'
-          }`}>
+          }`}
+          style={showDetails ? { touchAction: 'pan-y' } : undefined}
+          >
             {/* Hero Image - First element at the top */}
             {section.detailHeroImage && (
               <div className="mb-6">
