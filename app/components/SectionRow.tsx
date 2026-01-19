@@ -528,9 +528,10 @@ export default function SectionRow({ section }: SectionRowProps) {
                   
                   <div className="relative w-full overflow-hidden mb-3">
                     <img
-                      src="/MetaMask_Outcome_01.jpg"
+                      src="/Metamask_Outcome_01.jpg"
                       alt="MetaMask App Store redesign outcome"
                       style={{ width: 'auto', height: 'auto', maxWidth: '100%' }}
+                      onError={() => handleImageError('/Metamask_Outcome_01.jpg')}
                     />
                   </div>
                 </div>
