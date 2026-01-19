@@ -880,6 +880,17 @@ export default function SectionRow({ section }: SectionRowProps) {
                 </div>
               </>
             )}
+
+            {/* Portfolio Disclaimer - Only visible when toggle is ON */}
+            {showDetails && (
+              <div className="mt-8 pt-6 border-t border-gray-100">
+                <p className="text-[11px] text-[#9aa0a6] leading-relaxed">
+                  * Before-and-after visuals are presented for design exploration only.
+                  <br />
+                  * Concept redesign for portfolio purposes only. Not affiliated with or endorsed by the original brand.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
