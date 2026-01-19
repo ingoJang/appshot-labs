@@ -14,6 +14,13 @@ export default function SectionRow({ section }: SectionRowProps) {
   const [prevShowDetails, setPrevShowDetails] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   
+  // Dev-only image error handler
+  const handleImageError = (src: string) => {
+    if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
+      console.warn(`[Image Error] Failed to load: ${src} on route: ${window.location.pathname}`);
+    }
+  };
+  
   // Get the app name from the first item, or fallback to category name
   // For Web3 section, show "MetaMask" as the active product
   // For AI section, show "ChatGPT" as the active product
@@ -217,18 +224,22 @@ export default function SectionRow({ section }: SectionRowProps) {
             </div>
           ) : (
             <div 
-              className="overflow-x-auto overflow-y-hidden -mx-4 md:-mx-6 lg:-mx-8 px-4 md:px-6 lg:px-8 hide-scrollbar [overscroll-behavior-x:contain] [overscroll-behavior-y:auto] [touch-action:pan-x] [scroll-padding-x:1.5rem]"
+              className="overflow-x-auto overflow-y-hidden -mx-4 md:-mx-6 lg:-mx-8 px-4 md:px-6 lg:px-8 hide-scrollbar [overscroll-behavior-x:contain] [overscroll-behavior-y:auto] [scroll-padding-x:1.5rem]"
+              style={{ touchAction: 'pan-y pan-x' }}
               onWheel={(e) => {
+                // Only handle horizontal scroll when Shift key is pressed (Shift + wheel = horizontal scroll)
+                // Otherwise, let the event bubble and allow normal vertical page scrolling
+                if (!e.shiftKey) {
+                  return; // Allow default vertical scrolling behavior
+                }
+
                 const el = e.currentTarget;
                 const canScrollX = el.scrollWidth > el.clientWidth;
                 if (!canScrollX) return;
 
-                // Only handle horizontal wheel intent (deltaX)
-                // If horizontal intent is stronger than vertical, scroll the carousel
-                if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
-                  el.scrollLeft += e.deltaX;
-                }
-                // Otherwise, do nothing and allow browser to scroll the page vertically
+                // Shift + wheel: scroll carousel horizontally
+                el.scrollLeft += e.deltaY; // Use deltaY when Shift is pressed (browser converts wheel to horizontal)
+                e.preventDefault(); // Only prevent default for Shift+wheel horizontal scroll
               }}
             >
               <div className="flex flex-nowrap gap-3">
@@ -291,28 +302,28 @@ export default function SectionRow({ section }: SectionRowProps) {
                   <div className="space-y-3">
                     <div className="relative w-full overflow-hidden">
                       <img
-                        src="/Revolut_TheProblem01.jpg"
+                        src="/Revolut_Theproblem01.jpg"
                         alt="Revolut App Store original design problem - image 1"
                         style={{ width: 'auto', height: 'auto', maxWidth: '100%' }}
                       />
                     </div>
                     <div className="relative w-full overflow-hidden">
                       <img
-                        src="/Revolut_TheProblem02.jpg"
+                        src="/Revolut_Theproblem02.jpg"
                         alt="Revolut App Store original design problem - image 2"
                         style={{ width: 'auto', height: 'auto', maxWidth: '100%' }}
                       />
                     </div>
                     <div className="relative w-full overflow-hidden">
                       <img
-                        src="/Revolut_TheProblem03.jpg"
+                        src="/Revolut_Theproblem03.jpg"
                         alt="Revolut App Store original design problem - image 3"
                         style={{ width: 'auto', height: 'auto', maxWidth: '100%' }}
                       />
                     </div>
                     <div className="relative w-full overflow-hidden">
                       <img
-                        src="/Revolut_TheProblem04.jpg"
+                        src="/Revolut_Theproblem04.jpg"
                         alt="Revolut App Store original design problem - image 4"
                         style={{ width: 'auto', height: 'auto', maxWidth: '100%' }}
                       />

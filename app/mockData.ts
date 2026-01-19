@@ -135,7 +135,7 @@ export const mockSections: Section[] = CATEGORIES.map((category, index) => {
     category === 'Fintech' ? '/Revolut_Appshot_01.jpg' : 
     category === 'Web3' ? '/Metamask_Appshot_01.jpg' :
     category === 'Productivity' ? '/Obsidian_Appshot_01.jpg' :
-    category === 'AI' ? '/Chatgpt_Appshot_01.jpg' :
+    category === 'AI' ? '/ChatGPT_Appshot_01.jpg' :
     category === 'Travel' ? '/Tripadvisor_Appshot_01.jpg' :
     undefined;
   
