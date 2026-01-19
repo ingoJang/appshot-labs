@@ -36,10 +36,8 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: `${SITE_URL}/logo.png`,
-        width: 1706,
-        height: 160,
-        alt: `${SITE_NAME} Logo`,
+        url: `${SITE_URL}/og.jpg`,
+        alt: `${SITE_NAME} - App Store Screenshot Design Studio`,
       },
     ],
   },
@@ -47,7 +45,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
-    images: [`${SITE_URL}/logo.png`],
+    images: [`${SITE_URL}/og.jpg`],
   },
   robots: {
     index: true,
