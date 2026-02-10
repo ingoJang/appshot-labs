@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'App Store Screenshot Design Studio',
+  title: 'AppShot Labs | App Store Screenshot Design Studio',
   description: 'AppShot Labs is a design studio focused on App Store visuals and screenshot systems. We create custom-designed visuals that help apps get chosen, not just noticed.',
   alternates: {
     canonical: SITE_URL,
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: 'AppShot Labs | App Store Screenshot Design Studio',
-    description: 'AppShot Labs is a design studio focused on App Store visuals and screenshot systems.',
+    description: 'AppShot Labs is a design studio focused on App Store visuals and screenshot systems. We create custom-designed visuals that help apps get chosen, not just noticed.',
   },
 };
 

@@ -74,6 +74,7 @@ export default function Home() {
       <Header />
 
       <div className="max-w-content mx-auto px-4 md:px-6 lg:px-8 overflow-x-hidden">
+        <h1 className="sr-only">AppShot Labs – App Store Screenshot Design Studio</h1>
         <div className="flex gap-6 lg:gap-8 pt-6 md:pt-8">
           {/* Sidebar */}
           <SidebarFilters

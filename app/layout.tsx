@@ -8,7 +8,7 @@ import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'App Store Screenshot Design Studio',
+    default: 'AppShot Labs | App Store Screenshot Design Studio',
     template: `${SITE_NAME} | %s`,
   },
   description: SITE_DESCRIPTION,
@@ -16,14 +16,18 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
   keywords: [
+    'AppShot Labs',
+    'appshotlabs',
     'App Store screenshots',
+    'App Store screenshot design',
     'App Store design',
-    'screenshot design',
+    'screenshot design studio',
     'mobile app marketing',
     'ASO design',
     'app store optimization',
     'Google Play screenshots',
     'app store visuals',
+    'app store creative agency',
   ],
   authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,
@@ -37,15 +41,27 @@ export const metadata: Metadata = {
     images: [
       {
         url: `${SITE_URL}/og.jpg`,
+        width: 1200,
+        height: 630,
+        type: 'image/jpeg',
         alt: `${SITE_NAME} - App Store Screenshot Design Studio`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@ingokr95',
+    creator: '@ingokr95',
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
-    images: [`${SITE_URL}/og.jpg`],
+    images: [
+      {
+        url: `${SITE_URL}/og.jpg`,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_NAME} - App Store Screenshot Design Studio`,
+      },
+    ],
   },
   robots: {
     index: true,
